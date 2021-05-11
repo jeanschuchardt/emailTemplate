@@ -1,0 +1,1752 @@
+<!--String basicCellStyle = "font-size: 14px; line-height: 16px; font-family:helvetica, Arial, sans-serif; color:#666666;"; -->
+
+<table style='border-collapse: collapse;padding:0 10px;' width='700' cellspacing='0' cellpadding='0' border='0'
+       align='center'>"
+    <tbody>
+    <tr>
+        <td>
+            <table width='100%' style='border-bottom:1px solid #E1E1E1;'>
+                <tbody>
+                <tr>
+                    <td style='font-family: helvetica, Arial, sans-serif; font-size: 20px; color: #343434; line-height: 26px; text-decoration: none; lign='
+                        right
+                    ' >
+
+                    stringBuilder.append("Invoice Number ").append(orderNumber);
+
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </td>
+    </tr>
+    <!-- Space -->
+    <tr>
+        <td style='font-size: 0; line-height: 0;' height='5' colspan='6'>&nbsp;</td>
+    </tr>
+
+
+    <!--if (fields.containsKey("message")){-->
+
+    <tr>
+        <td>
+            <p
+                    style='font-family: helvetica, Arial, sans-serif; font-size: 14px; color: #666666; line-height: 21px;'>
+
+                <!--        stringBuilder.append(fields.get("message"));-->
+
+        </td>
+    </tr>
+
+
+    <!--// Get province info-->
+    <!--// HashMap<String, Object>  provinceInfo = getProvinceInfo(order.getCustShipStateProvId());-->
+
+    <!--// Get country info-->
+    <!--// HashMap<String, Object> countryInfo = getCountryInfo(order.getCustShipCountry());-->
+    <!--// Get province info-->
+    <!--int stateProv = order.getCustStateProvId();-->
+    <!--HashMap<String, Object> provinceInfo = null;-->
+    <!--if (stateProv != 0) {-->
+    <!--provinceInfo = getProvinceInfo(stateProv);-->
+    <!--}-->
+
+    <!--stateProv = order.getCustShipStateProvId();-->
+    <!--HashMap<String, Object> shipProvinceInfo = null;-->
+    <!--if (stateProv != 0) {-->
+    <!--shipProvinceInfo = getProvinceInfo(stateProv);-->
+    <!--}-->
+
+    <!--// Get country info-->
+    <!--int country = order.getCustCountryId();-->
+    <!--HashMap<String, Object> countryInfo = null;-->
+    <!--if (country != 0) {-->
+    <!--countryInfo = getCountryInfo(country);-->
+    <!--}-->
+
+    <!--country = order.getCustShipCountry();-->
+    <!--HashMap<String, Object> shipCountryInfo = null;-->
+    <!--if (country != 0) {-->
+    <!--shipCountryInfo = getCountryInfo(country);-->
+    <!--}-->
+
+    <tr>
+        <td>
+            <table style='border-collapse: collapse; padding:0 10px; page-break-after: auto;' width='700'
+                   cellspacing='0' cellpadding='0' border='0' align='center'>
+                <tbody>
+                <tr>
+                    <td>
+                        <!-- first column -->
+                        <table style='border-collapse: collapse;' width='370' cellspacing='0' cellpadding='0' border='0'
+                               align='left'>
+                            <tbody>
+                            <tr>
+                                <td>
+                                    <table style='border-collapse: collapse;' cellspacing='0' cellpadding='0' border='0'
+                                           align='left' width='100%'>
+                                        <tbody>
+                                        <!-- Space -->
+                                        <tr>
+                                            <td style='font-size: 0; line-height: 0;' height='5'
+                                                colspan='6'>&nbsp;
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td
+                                                    style='font-family: helvetica, Arial, sans-serif; font-size: 18px; color: #343434; line-height: 22px; text-decoration: none;'>
+                                                " +
+                                                <span>
+                                                                   Customer Information
+                                                               </span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style='font-size: 0; line-height: 0;' height='1'
+                                                bgcolor='#eaeaea'>&nbsp;
+                                            </td>
+                                        </tr>
+                                        <!-- Space -->
+                                        <tr>
+                                            <td style='font-size: 0; line-height: 0;' height='5'
+                                                colspan='6'>&nbsp;
+                                            </td>
+                                        </tr>
+
+
+                                        /** *********** START CUSTOMER INFO SECTION **************** */
+                                        stringBuilder.append("
+                                        <tr>");
+                                            stringBuilder.append("
+                                            <td valign='top'>");
+                                                stringBuilder.append("
+                                                <table width='100%' border='0' cellspacing='0' cellpadding='2'>");
+                                                    stringBuilder.append("
+                                                    <tbody>");
+
+                                                    // Customer Email
+                                                    if (order.getCustEmail() != null) {
+                                                    stringBuilder.append("
+                                                    <tr>");
+                                                        stringBuilder.append("
+                                                        <td colspan='2' style='" + basicCellStyle + "'>");
+                                                            stringBuilder.append("Email: ");
+                                                            stringBuilder.append("<a
+                                                                    style='font-family: helvetica, Arial, sans-serif; font-size: 14px;text-decoration:none; line-height: 14px; color: #3d78d8;'
+                                                                    href='mailto:")
+                        .append(order.getCustEmail())
+                        .append("'>");
+                                                                stringBuilder.append(order.getCustEmail());
+                                                                stringBuilder.append("</a>");
+                                                            stringBuilder.append("
+                                                        </td>
+                                                        ");
+                                                        stringBuilder.append("
+                                                    </tr>
+                                                    ");
+
+                                                    stringBuilder.append("
+                                                    <tr>");
+                                                        stringBuilder.append("
+                                                        <td colspan='2' style='" + basicCellStyle + "'>&nbsp;</td>
+                                                        ");
+                                                        stringBuilder.append("
+                                                    </tr>
+                                                    ");
+                                                    }
+
+                                                    // "Bill To: "
+                                                    StringBuilder billToStringBuilder = new StringBuilder();
+
+                                                    // Customer Name
+                                                    if (order.getCustFirstName() != null || order.getCustLastName() !=
+                                                    null) {
+                                                    billToStringBuilder.append("
+                                                    <tr>");
+                                                        billToStringBuilder.append("
+                                                        <td style='" + basicCellStyle + "' width='5%'>&nbsp;</td>
+                                                        ");
+                                                        billToStringBuilder.append("
+                                                        <td style='" + basicCellStyle + "'>");
+                                                            if (order.getCustFirstName() != null) {
+                                                            billToStringBuilder.append(order.getCustFirstName()).append("
+                                                            ");
+                                                            }
+                                                            if (order.getCustLastName() != null) {
+                                                            billToStringBuilder.append(order.getCustLastName());
+                                                            }
+                                                            billToStringBuilder.append("
+                                                        </td>
+                                                        ");
+                                                        billToStringBuilder.append("
+                                                    </tr>
+                                                    ");
+                                                    }
+
+                                                    // Customer Company
+                                                    if (order.getCustCompanyname() != null) {
+                                                    billToStringBuilder.append("
+                                                    <tr>");
+                                                        billToStringBuilder.append("
+                                                        <td style='" + basicCellStyle + "' width='5%'>&nbsp;</td>
+                                                        ");
+                                                        billToStringBuilder.append("
+                                                        <td style='" + basicCellStyle + "'>");
+                                                            if (order.getCustCompanyname() != null) {
+                                                            billToStringBuilder.append(order.getCustCompanyname());
+                                                            }
+                                                            billToStringBuilder.append("
+                                                        </td>
+                                                        ");
+                                                        billToStringBuilder.append("
+                                                    </tr>
+                                                    ");
+                                                    }
+
+                                                    // Customer Address
+                                                    if (order.getCustAddress() != null || order.getCustAddress2() !=
+                                                    null) {
+                                                    billToStringBuilder.append("
+                                                    <tr>");
+                                                        billToStringBuilder.append("
+                                                        <td style='" + basicCellStyle + "'>&nbsp;</td>
+                                                        ");
+                                                        billToStringBuilder.append("
+                                                        <td style='" + basicCellStyle + "'>");
+                                                            if (order.getCustAddress() != null) {
+                                                            billToStringBuilder.append(order.getCustAddress()).append("
+                                                            ");
+                                                            }
+
+                                                            if (order.getCustAddress2() != null) {
+                                                            if (order.getCustAddress() != null) {
+                                                            billToStringBuilder.append("
+                                                        </td>
+                                                        ");
+                                                        billToStringBuilder.append("
+                                                    </tr>
+                                                    ");
+
+                                                    billToStringBuilder.append("
+                                                    <tr>");
+                                                        billToStringBuilder.append("
+                                                        <td style='" + basicCellStyle + "'>&nbsp;</td>
+                                                        ");
+                                                        billToStringBuilder.append("
+                                                        <td style='" + basicCellStyle + "'>");
+                                                            }
+                                                            billToStringBuilder.append(order.getCustAddress2());
+                                                            }
+                                                            billToStringBuilder.append("
+                                                        </td>
+                                                        ");
+                                                        billToStringBuilder.append("
+                                                    </tr>
+                                                    ");
+                                                    }
+
+                                                    // Customer City/Province/PostalCode
+                                                    if (order.getCustCity() != null || provinceInfo != null ||
+                                                    order.getCustZippostal() != null) {
+                                                    billToStringBuilder.append("
+                                                    <tr>");
+                                                        billToStringBuilder.append("
+                                                        <td style='" + basicCellStyle + "'>&nbsp;</td>
+                                                        ");
+                                                        billToStringBuilder.append("
+                                                        <td style='" + basicCellStyle + "'>");
+                                                            if (order.getCustCity() != null) {
+                                                            billToStringBuilder.append(order.getCustCity()).append(" ");
+                                                            }
+
+                                                            if (provinceInfo != null) {
+                                                            billToStringBuilder.append(provinceInfo.get("name")).append("
+                                                            ");
+                                                            }
+
+                                                            if (order.getCustZippostal() != null) {
+                                                            billToStringBuilder.append(order.getCustZippostal());
+                                                            }
+                                                            billToStringBuilder.append("
+                                                        </td>
+                                                        ");
+                                                        billToStringBuilder.append("
+                                                    </tr>
+                                                    ");
+                                                    }
+
+                                                    // Customer Country
+                                                    billToStringBuilder.append("
+                                                    <tr>");
+                                                        billToStringBuilder.append("
+                                                        <td style='" + basicCellStyle + "'>&nbsp;</td>
+                                                        ");
+                                                        billToStringBuilder.append("
+                                                        <td style='" + basicCellStyle + "'>");
+                                                            if (countryInfo != null) {
+                                                            billToStringBuilder.append(countryInfo.get("name"));
+                                                            }
+                                                            billToStringBuilder.append("
+                                                        </td>
+                                                        ");
+                                                        billToStringBuilder.append("
+                                                    </tr>
+                                                    ");
+
+
+                                                    // "Ship To: "
+                                                    StringBuilder shipToStringBuilder = new StringBuilder();
+
+                                                    // Customer Ship Name
+                                                    if (order.getCustShipFirstName() != null ||
+                                                    order.getCustShipLastName() != null) {
+                                                    shipToStringBuilder.append("
+                                                    <tr>");
+                                                        shipToStringBuilder.append("
+                                                        <td style='" + basicCellStyle + "' width='5%'>&nbsp;</td>
+                                                        ");
+                                                        shipToStringBuilder.append("
+                                                        <td style='" + basicCellStyle + "'>");
+                                                            if (order.getCustShipFirstName() != null) {
+                                                            shipToStringBuilder.append(order.getCustShipFirstName()).append("
+                                                            ");
+                                                            }
+                                                            if (order.getCustShipLastName() != null) {
+                                                            shipToStringBuilder.append(order.getCustShipLastName());
+                                                            }
+                                                            shipToStringBuilder.append("
+                                                        </td>
+                                                        ");
+                                                        shipToStringBuilder.append("
+                                                    </tr>
+                                                    ");
+                                                    }
+
+                                                    // Customer Ship Address
+                                                    if (order.getCustShipAddress() != null ||
+                                                    order.getCustShipAddress2() != null) {
+                                                    shipToStringBuilder.append("
+                                                    <tr>");
+                                                        shipToStringBuilder.append("
+                                                        <td style='" + basicCellStyle + "'>&nbsp;</td>
+                                                        ");
+                                                        shipToStringBuilder.append("
+                                                        <td style='" + basicCellStyle + "'>");
+                                                            if (order.getCustShipAddress() != null) {
+                                                            shipToStringBuilder.append(order.getCustShipAddress()).append("
+                                                            ");
+                                                            }
+
+                                                            if (order.getCustShipAddress2() != null) {
+                                                            if (order.getCustShipAddress() != null) {
+                                                            shipToStringBuilder.append("
+                                                        </td>
+                                                        ");
+                                                        shipToStringBuilder.append("
+                                                    </tr>
+                                                    ");
+
+                                                    shipToStringBuilder.append("
+                                                    <tr>");
+                                                        shipToStringBuilder.append("
+                                                        <td style='" + basicCellStyle + "'>&nbsp;</td>
+                                                        ");
+                                                        shipToStringBuilder.append("
+                                                        <td style='" + basicCellStyle + "'>");
+                                                            }
+                                                            shipToStringBuilder.append(order.getCustShipAddress2());
+                                                            }
+                                                            shipToStringBuilder.append("
+                                                        </td>
+                                                        ");
+                                                        shipToStringBuilder.append("
+                                                    </tr>
+                                                    ");
+                                                    }
+
+                                                    // Customer Ship City/Province/PostalCode
+                                                    if (order.getCustShipCity() != null || shipProvinceInfo != null ||
+                                                    order.getCustShipzippostal() != null) {
+                                                    shipToStringBuilder.append("
+                                                    <tr>");
+                                                        shipToStringBuilder.append("
+                                                        <td style='" + basicCellStyle + "'>&nbsp;</td>
+                                                        ");
+                                                        shipToStringBuilder.append("
+                                                        <td style='" + basicCellStyle + "'>");
+                                                            if (order.getCustShipCity() != null) {
+                                                            shipToStringBuilder.append(order.getCustShipCity()).append("
+                                                            ");
+                                                            }
+
+                                                            if (shipProvinceInfo != null) {
+                                                            shipToStringBuilder.append(shipProvinceInfo.get("name")).append("
+                                                            ");
+                                                            }
+
+                                                            if (order.getCustShipzippostal() != null) {
+                                                            shipToStringBuilder.append(order.getCustShipzippostal());
+                                                            }
+                                                            shipToStringBuilder.append("
+                                                        </td>
+                                                        ");
+                                                        shipToStringBuilder.append("
+                                                    </tr>
+                                                    ");
+                                                    }
+
+                                                    // Customer Ship Country
+                                                    if (shipCountryInfo != null) {
+                                                    shipToStringBuilder.append("
+                                                    <tr>");
+                                                        shipToStringBuilder.append("
+                                                        <td style='" + basicCellStyle + "'>&nbsp;</td>
+                                                        ");
+                                                        shipToStringBuilder.append("
+                                                        <td style='" + basicCellStyle + "'>");
+                                                            shipToStringBuilder.append(shipCountryInfo.get("name"));
+                                                            shipToStringBuilder.append("
+                                                        </td>
+                                                        ");
+                                                        shipToStringBuilder.append("
+                                                    </tr>
+                                                    ");
+                                                    }
+
+
+                                                    // Add the customer info sections, if not empty.
+                                                    if (stringBuilder.length() > 0) {
+                                                    stringBuilder.append("
+                                                    <tr>");
+                                                        stringBuilder.append("
+                                                        <td colspan='2' style='" + basicCellStyle + "'>");
+                                                            stringBuilder.append("<b>Bill to:</b>");
+                                                            stringBuilder.append("
+                                                        </td>
+                                                        ");
+                                                        stringBuilder.append("
+                                                    </tr>
+                                                    ");
+
+                                                    stringBuilder.append(billToStringBuilder);
+                                                    }
+
+                                                    if (shipToStringBuilder.length() > 0) {
+                                                    stringBuilder.append("
+                                                    <tr>");
+                                                        stringBuilder.append("
+                                                        <td colspan='2' style='" + basicCellStyle + "padding-top:10px;'>
+                                                            ");
+                                                            stringBuilder.append("<b>Ship to:</b>");
+                                                            stringBuilder.append("
+                                                        </td>
+                                                        ");
+                                                        stringBuilder.append("
+                                                    </tr>
+                                                    ");
+
+                                                    stringBuilder.append(shipToStringBuilder);
+                                                    }
+
+                                                    stringBuilder.append("
+                                                    </tbody>
+                                                    ");
+                                                    stringBuilder.append("
+                                                </table>
+                                                ");
+                                                stringBuilder.append("
+                                            </td>
+                                            ");
+                                            stringBuilder.append("
+                                        </tr>
+                                        ");
+                                        /** *********** END CUSTOMER INFO SECTION **************** */
+
+                                        stringBuilder.append("<!-- Space --> ");
+
+                                        stringBuilder.append("
+                                        <tr>" +
+                                            "
+                                            <td style='font-size: 0; line-height: 0;' height='5'
+                                            " +
+                                            " colspan='6'>&nbsp;</td>" +
+                                            "
+                                        </tr>
+                                        " +
+                                        "
+                                        </tbody>
+                                        " +
+                                        "
+                                    </table>
+                                    " +
+                                    "
+                                </td>
+                                " +
+                                "
+                            </tr>
+                            " +
+                            "
+                            </tbody>
+                            " +
+                            "
+                        </table>
+                        " +
+                        "                                <!-- second column -->" +
+                        "
+                        <table style='border-collapse: collapse; margin-left:10px' width='300' cellspacing='0'
+                        " +
+                        " cellpadding='0' border='0' align='left'>" +
+                        "
+                <tbody>" +
+                "
+                <tr>" +
+                    "
+                    <td>" +
+                        "
+                        <table style='border-collapse: collapse;' cellspacing='0'
+                        " +
+                        " cellpadding='0' border='0' align='center'>" +
+                        "                                                    <!-- Space -->" +
+                        "
+                <tbody>" +
+                "
+                <tr>" +
+                    "
+                    <td style='font-size: 0; line-height: 0;' height='5'
+                    " +
+                    " colspan='6'>&nbsp;</td>" +
+                    "
+                </tr>
+                " +
+                "
+                <tr>" +
+                    "
+                    <td
+                    " +
+                    " style='font-family: helvetica, Arial, sans-serif; font-size: 18px; color: #343434; line-height:
+                    22px; text-decoration: none;'>" +
+                    " <span>Invoice Information</span>" +
+                    "                                                            </td>" +
+                    "
+                </tr>
+                " +
+                "
+                <tr>" +
+                    "
+                    <td style='font-size: 0; line-height: 0;' height='1'
+                    " +
+                    " bgcolor='#eaeaea'>&nbsp;</td>" +
+                    "
+                </tr>
+                " +
+                "                                                        <!-- Space -->" +
+                "
+                <tr>" +
+                    "
+                    <td style='font-size: 0; line-height: 0;' height='5'
+                    " +
+                    " colspan='6'>&nbsp;</td>" +
+                    "
+                </tr>
+                " +
+                "
+                <tr>" +
+                    "
+                    <td valign='top'>" +
+                        "
+                        <table width='100%' border='0' cellspacing='0'
+                        " +
+                        " cellpadding='2'>" +
+                        "
+                <tbody>" +
+                "
+                <tr>" +
+                    "
+                    <td valign='top'>" +
+                        "
+                        <table width='100%' border='0'
+                        " +
+                        " cellspacing='0' cellpadding='2'>" +
+                        "
+                <tbody>" +
+                "
+                <tr>" +
+                    "
+                    <td
+                    " +
+                    " style='" + basicCellStyle + "'>" +
+                    " <b>Invoice Number:</b>" +
+                    "                                                                                            </td>"
+                    +
+                    "
+                    <td
+                    " +
+                    " style='" + basicCellStyle + "'>");
+
+                    stringBuilder.append(orderNumber);
+
+                    stringBuilder.append("</td>" +
+                    "
+                </tr>
+                " +
+                "
+                <tr>" +
+                    "
+                    <td
+                    " +
+                    " style='" + basicCellStyle + "'>" +
+                    " <b>Invoice Date:</b></td>" +
+                    "
+                    <td
+                    " +
+                    " style='" + basicCellStyle + "'>");
+
+                    String pattern = "yyyy-MM-dd HH:mm:ss";
+                    SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
+
+                    String parsedOrderDate = order.getOrderDate().toString();
+                    try {
+                    parsedOrderDate =
+                    simpleDateFormat.parse(order.getOrderDate().toString().split("\\.")[0]).toString();
+                    } catch(Exception e) {
+                    log.error(e.getMessage(), e);
+                    }
+
+                    simpleDateFormat = new SimpleDateFormat(outputDateFormat);
+                    String orderDateFormatted = simpleDateFormat.format(order.getOrderDate());
+
+                    stringBuilder.append(orderDateFormatted);
+
+                    stringBuilder.append("</td>" +
+                    "
+                </tr>
+                ");
+
+                if (!order.getIsQuote() && order.getIsPaid() != null) {
+                stringBuilder.append("
+                <tr>" +
+                    "
+                    <td
+                    " +
+                    " style='" + basicCellStyle + "'>" +
+                    " <b>Payment Status:</b></td>" +
+                    "
+                    <td
+                    " +
+                    " style='" + basicCellStyle + "'>");
+
+                    if (order.getIsPaid() == 0) {
+                    stringBuilder.append("Not Paid");
+                    } else {
+                    stringBuilder.append("Paid");
+                    }
+
+                    stringBuilder.append("</td>" +
+                    "
+                </tr>
+                ");
+                }
+
+                if (order.getPaymentType() != null) {
+                stringBuilder.append("
+                <tr>" +
+                    "
+                    <td
+                    " +
+                    " style='" + basicCellStyle + "'>" +
+                    " <b>Payment Type:</b>" +
+                    "                                                                                            </td>"
+                    +
+                    "
+                    <td
+                    " +
+                    " style='" + basicCellStyle + "'>");
+
+
+                    stringBuilder.append(order.getPaymentType());
+                    }
+
+                    stringBuilder.append("</td>" +
+                    "
+                </tr>
+                " +
+                "
+                </tbody>
+                " +
+                "
+            </table>
+            " +
+            "
+        </td>
+        " +
+        "
+    </tr>
+    " +
+    "
+    </tbody>
+    " +
+    "
+</table>" +
+"                                                            </td>" +
+"                                                        </tr>" +
+"                                                    </tbody>" +
+"                                                </table>" +
+"                                            </td>" +
+"                                        </tr>" +
+"                                    </tbody>" +
+"                                </table>" +
+"                            </td>" +
+"                        </tr>" +
+"
+<tr>" +
+    "
+    <td>" +
+        "                                <!-- first column -->" +
+        "
+        <table style='border-collapse: collapse;' width='700' cellspacing='0' cellpadding='0'
+        " +
+        " border='0' align='left'>" +
+        "
+        <tbody>" +
+        "                                        <!-- Space -->" +
+        "
+        <tr>" +
+            "
+            <td style='font-size: 0; line-height: 0;'
+            " +
+            " height='5' colspan='6'>&nbsp;</td>" +
+            "
+        </tr>
+        " +
+        "
+        <tr>" +
+            "
+            <td colspan='2'
+            " +
+            " style='font-family: helvetica, Arial, sans-serif; font-size: 18px; color: #343434; line-height: 22px;
+            text-decoration: none;'>" +
+            " <span>Contents</span>" +
+            "                                            </td>" +
+            "
+        </tr>
+        " +
+        "
+        <tr>" +
+            "
+            <td colspan='2'
+            " +
+            " style='font-size: 0; line-height: 0; padding:0;'" +
+            " height='1' bgcolor='#eaeaea'>&nbsp;</td>" +
+            "
+        </tr>
+        " +
+        "                                        <!-- Space -->" +
+        "
+        <tr>" +
+            "
+            <td style='font-size: 0; line-height: 0;'
+            " +
+            " height='5' colspan='6'>&nbsp;</td>" +
+            "
+        </tr>
+        " +
+        "                                        <!-- Space -->" +
+        "
+        <tr>" +
+            "
+            <td style='font-size: 0; line-height: 0;' height='5' colspan='6'>&nbsp;</td>
+            " +
+            "
+        </tr>
+        " +
+        "
+        <tr>" +
+            "
+            <td>");
+
+                // Get orderitems
+                List
+                <OrderItem> orderItems =
+                    orderItemRepository.findAll(Criteria.createCriteria(orderItemService.getUnarchivedCriteriaByDependID("orderId",
+                    id)), Criteria.getPKSort(getSortColumn(), getAsc()));
+
+                    ArrayList
+                    <OrderItem> topLevel = new ArrayList
+                        <OrderItem>();
+                            for (OrderItem item : orderItems) {
+                            if ((item.getHasChildren() == 1 && item.getParentOrderItemId() == 0)
+                            || (item.getHasChildren() == 0 && item.getParentOrderItemId() == 0)) {
+                            topLevel.add(item);
+                            }
+                            }
+
+                            List
+                            <OrderItem> sortedOrderItems = orderItems;
+                                if (topLevel.size() != orderItems.size()) {
+                                sortedOrderItems = orderItemListBuilder(topLevel, orderItems, 0);
+                                }
+
+                                stringBuilder.append("
+                                <table width='100%' border='0' cellpadding='2' cellspacing='0' class=''>");
+                                    stringBuilder.append("
+                                    <tbody>");
+                                    stringBuilder.append("
+                                    <tr class=''
+                                        style='display:table-row;font-family: helvetica, Arial, sans-serif; font-size: 14px; color: #343434; line-height: 26px;'>
+                                        ");
+                                        if (topLevel.size() != orderItems.size()) {
+                                        stringBuilder.append("
+                                        <td align='left'>&nbsp;</td>
+                                        ");
+                                        }
+                                        stringBuilder.append("
+                                        <td align='center'>&nbsp;<b>QTY</b>&nbsp;</td>
+                                        ");
+                                        stringBuilder.append("
+                                        <td align='left' colspan='2'><b>SKU</b></td>
+                                        ");
+                                        stringBuilder.append("
+                                        <td align='left' colspan='3'><b>Name</b></td>
+                                        ");
+                                        stringBuilder.append("
+                                        <td align='right' nowrap='nowrap'><b>Unit Price</b></td>
+                                        ");
+                                        stringBuilder.append("
+                                        <td align='right' nowrap='nowrap'>&nbsp;&nbsp;<b>Ext. Price</b></td>
+                                        ");
+                                        stringBuilder.append("
+                                    </tr>
+                                    ");
+
+                                    if (sortedOrderItems.size() != 0){
+
+                                    boolean hasBg = true;
+
+                                    String bg = "#FFFFFF";
+
+                                    for (OrderItem orderItem : sortedOrderItems){
+
+                                    String orderItemCurrencySymbol = "";
+                                    if (orderItem.getAmountCurrency().getSymbol() != null) {
+                                    orderItemCurrencySymbol = orderItem.getAmountCurrency().getSymbol();
+                                    }
+                                    String orderItemCurrencyCode = "";
+                                    if (orderItem.getAmountCurrency().getCode() != null) {
+                                    orderItemCurrencyCode = orderItem.getAmountCurrency().getCode();
+                                    }
+
+                                    if(hasBg){
+
+                                    bg = "#E1E1E1";
+                                    }else {
+
+                                    bg = "#FFFFFF";
+                                    }
+
+                                    hasBg = !hasBg;
+
+                                    int productId = orderItem.getProductId();
+
+                                    stringBuilder.append("
+                                    <tr style='font-family: helvetica, Arial, sans-serif; font-size: 14px; color: #666666; line-height: 14px; background-color:").append(bg).append(";'
+                                        class='' id='row1'>");
+                                        if (topLevel.size() != orderItems.size() && orderItem.getLevel() != null) {
+                                        stringBuilder.append("
+                                        <td style='padding:4px 2px 4px " + (10 * orderItem.getLevel() + 2) + "px;'
+                                            class='' align='left'>");
+                                            if (orderItem.getLevel() > 0) {
+                                            stringBuilder.append("|_");
+                                            }
+                                            stringBuilder.append("
+                                        </td>
+                                        ");
+                                        }
+                                        stringBuilder.append("
+                                        <td style='padding:4px 2px;' class='' align='center'>");
+                                            stringBuilder.append(orderItem.getQuantity());
+                                            stringBuilder.append("
+                                        </td>
+                                        ");
+                                        stringBuilder.append("
+                                        <td style='padding:4px 2px;' class='' colspan='2'><b>");
+                                            stringBuilder.append(orderItem.getSku());
+                                            stringBuilder.append("</b>");
+                                            stringBuilder.append("
+                                        </td>
+                                        ");
+                                        stringBuilder.append("
+                                        <td style='padding:4px 2px;' class='' colspan='3'><b>");
+                                            stringBuilder.append(orderItem.getProductName());
+                                            stringBuilder.append("</b>");
+                                            stringBuilder.append("
+                                        </td>
+                                        ");
+                                        stringBuilder.append("
+                                        <td style='padding:4px 2px;' class='' align='right'>");
+                                            //
+                                            stringBuilder.append(orderItemCurrencySymbol).append(decimalFormat.format(Double.parseDouble(orderItem.getAmount().toString())));
+                                            stringBuilder
+                                            .append(orderItemCurrencySymbol)
+                                            .append(decimalFormat.format(orderItemService.convertItemCurrency(orderItem)))
+                                            .append(" " + orderItemCurrencyCode);
+                                            stringBuilder.append("
+                                        </td>
+                                        ");
+                                        stringBuilder.append("
+                                        <td style='padding:4px 2px;' class='' align='right'>");
+                                            stringBuilder
+                                            .append(orderItemCurrencySymbol)
+                                            .append(decimalFormat.format(orderItemService.convertItemCurrency(orderItem).multiply(new
+                                            BigDecimal(orderItem.getQuantity().toString()))))
+                                            .append(" " + orderItemCurrencyCode);
+                                            stringBuilder.append("<br>");
+
+                                            // Get refund
+                                            int orderItemId = orderItem.getId();
+                                            List refundMaps =
+                                            orderRefundMapRepository.findAll(Criteria.createCriteria(orderRefundMapService.getUnarchivedCriteriaByDependID("orderItemId",
+                                            orderItemId)), Criteria.getPKSort(getSortColumn(), getAsc()));
+
+                                            if (refundMaps.size() > 0) {
+                                            BigDecimal orderItemRefundTotal = new BigDecimal("0.0");
+
+                                            for (Object object : refundMaps) {
+                                            OrderRefundMap orderRefundMap = (OrderRefundMap) object;
+
+                                            orderItemRefundTotal = orderItemRefundTotal.add(CurrencyService
+                                            .convert(orderRefundMap.getAmount(), orderItem.getAmountCurrency()))
+                                            .setScale(2, RoundingMode.HALF_UP);
+                                            }
+
+                                            stringBuilder
+                                            .append("<p>Refund: " + orderItemCurrencySymbol)
+                                                .append(orderItemRefundTotal)
+                                                .append(" " + orderItemCurrencyCode)
+                                                .append("</p>");
+                                            }
+                                            stringBuilder.append("
+                                        </td>
+                                        ");
+                                        stringBuilder.append("
+                                    </tr>
+                                    ");
+                                    }
+                                    }
+
+                                    // Get total information
+                                    HashMap
+                                    <String
+                                            , Object> totalInfo = getTotal(id).getBody();
+
+                                        String orderCurrencySymbol = "";
+                                        if (order.getOrderTotalCurrency().getSymbol() != null) {
+                                        orderCurrencySymbol = order.getOrderTotalCurrency().getSymbol();
+                                        }
+                                        String orderCurrencyCode = "";
+                                        if (order.getOrderTotalCurrency().getCode() != null) {
+                                        orderCurrencyCode = order.getOrderTotalCurrency().getCode();
+                                        }
+
+                                        stringBuilder.append("
+                                        <tr>
+
+                                            <td style='font-size: 0; line-height: 0;' height='20'
+
+                                                colspan='6'>&nbsp;
+                                            </td>
+
+                                        </tr>
+
+
+                                        <tr>
+
+                                            <td>&nbsp;</td>
+
+
+                                            <td>&nbsp;</td>
+
+
+                                            <td>&nbsp;</td>
+
+
+                                            <td>&nbsp;</td>
+
+
+                                            <td>&nbsp;</td>
+
+
+                                            <td>&nbsp;</td>
+
+
+                                            <td align='right'
+
+                                                style='font-family: helvetica, Arial, sans-serif; font-size: 14px; color:
+                                            #343434; line-height: 14px;'
+                                                class=''><strong>Subtotal</strong></td>
+
+                                            <td align='right'
+
+                                            style='font-family: helvetica, Arial, sans-serif; font-size: 14px; color:
+                                            #343434; line-height: 14px;'
+                                            " class='' nowrap='nowrap'
+                                            " &nbsp;&nbsp;<strong>");
+
+                                            stringBuilder
+                                            .append(orderCurrencySymbol)
+                                            .append(decimalFormat.format(Double.parseDouble(totalInfo.get("subtotal").toString())))
+                                            .append(" " + orderCurrencyCode);
+
+                                            stringBuilder.append("</strong></td>" +
+                                            "
+                                        </tr>
+                                        ");
+                                        double interest = Double.parseDouble(totalInfo.get("interest").toString());
+                                        if (interest > 0) {
+                                        stringBuilder.append(
+                                        "
+                                        <tr>" +
+                                            "
+                                            <td>&nbsp;</td>
+                                            " +
+                                            "
+                                            <td>&nbsp;</td>
+                                            " +
+                                            "
+                                            <td>&nbsp;</td>
+                                            " +
+                                            "
+                                            <td>&nbsp;</td>
+                                            " +
+                                            "
+                                            <td>&nbsp;</td>
+                                            " +
+                                            "
+                                            <td>&nbsp;</td>
+                                            " +
+                                            "
+                                            <td align='right'
+                                            " +
+                                            " style='font-family: helvetica, Arial, sans-serif; font-size: 14px; color:
+                                            #343434; line-height: 14px;'" +
+                                            " class=''><strong>Interest</strong></td>" +
+                                            "
+                                            <td align='right'
+                                            " +
+                                            " style='font-family: helvetica, Arial, sans-serif; font-size: 14px; color:
+                                            #343434; line-height: 14px;'" +
+                                            " class='' nowrap='nowrap'>" +
+                                            " &nbsp;&nbsp;<strong>");
+
+                                                stringBuilder.append("$").append(decimalFormat.format(interest));
+
+                                                stringBuilder.append("</strong></td>" +
+                                            "
+                                        </tr>
+                                        ");
+                                        }
+
+                                        double lateFees = Double.parseDouble(totalInfo.get("lateFee").toString());
+                                        if (lateFees > 0) {
+                                        stringBuilder.append(
+                                        "
+                                        <tr>" +
+                                            "
+                                            <td>&nbsp;</td>
+                                            " +
+                                            "
+                                            <td>&nbsp;</td>
+                                            " +
+                                            "
+                                            <td>&nbsp;</td>
+                                            " +
+                                            "
+                                            <td>&nbsp;</td>
+                                            " +
+                                            "
+                                            <td>&nbsp;</td>
+                                            " +
+                                            "
+                                            <td>&nbsp;</td>
+                                            " +
+                                            "
+                                            <td align='right'
+                                            " +
+                                            " style='font-family: helvetica, Arial, sans-serif; font-size: 14px; color:
+                                            #343434; line-height: 14px;'" +
+                                            " class=''><strong>Late Fees</strong></td>" +
+                                            "
+                                            <td align='right'
+                                            " +
+                                            " style='font-family: helvetica, Arial, sans-serif; font-size: 14px; color:
+                                            #343434; line-height: 14px;'" +
+                                            " class='' nowrap='nowrap'>" +
+                                            " &nbsp;&nbsp;<strong>");
+
+                                                stringBuilder.append("$").append(decimalFormat.format(lateFees));
+
+                                                stringBuilder.append("</strong></td>" +
+                                            "
+                                        </tr>
+                                        ");
+                                        }
+
+
+                                        // Get refunds
+
+                                        List allRefundMaps =
+                                        orderRefundMapRepository.findAll(Criteria.createCriteria(orderRefundMapService.getUnarchivedCriteriaByDependID("orderId",
+                                        id)), Criteria.getPKSort(getSortColumn(), getAsc()));
+
+                                        if (allRefundMaps.size() > 0) {
+
+                                        stringBuilder.append("
+                                        <tr>" +
+                                            " " +
+                                            "
+                                            <td>&nbsp;</td>
+                                            " +
+                                            "
+                                            <td>&nbsp;</td>
+                                            " +
+                                            "
+                                            <td>&nbsp;</td>
+                                            " +
+                                            "
+                                            <td>&nbsp;</td>
+                                            " +
+                                            "
+                                            <td>&nbsp;</td>
+                                            " +
+                                            "
+                                            <td>&nbsp;</td>
+                                            " +
+                                            "
+                                            <td align='right'
+                                            " +
+                                            " style='font-family: helvetica, Arial, sans-serif; font-size: 14px; color:
+                                            #343434; line-height: 14px;'" +
+                                            " class=''><strong>Refund</strong></td>" +
+                                            "
+                                            <td align='right'
+                                            " +
+                                            " style='font-family: helvetica, Arial, sans-serif; font-size: 14px; color:
+                                            #343434; line-height: 14px;'" +
+                                            " class='' nowrap='nowrap'>" +
+                                            " &nbsp;&nbsp;<strong>");
+
+                                                BigDecimal refundTotal = new BigDecimal("0.0");
+
+                                                for (Object object : allRefundMaps) {
+
+                                                OrderRefundMap orderRefundMap = (OrderRefundMap) object;
+
+                                                refundTotal =
+                                                refundTotal.add(CurrencyService.convert(orderRefundMap.getAmount(),
+                                                order.getOrderTotalCurrency())).setScale(2, RoundingMode.HALF_UP);
+                                                }
+
+                                                stringBuilder
+                                                .append(orderCurrencySymbol)
+                                                .append(decimalFormat.format(refundTotal))
+                                                .append(" " + orderCurrencyCode);
+
+                                                stringBuilder.append("</strong></td>" +
+                                            "
+                                        </tr>
+                                        ");
+                                        }
+
+                                        stringBuilder.append("
+                                        <tr>" +
+                                            "
+                                            <td>&nbsp;</td>
+                                            " +
+                                            "
+                                            <td>&nbsp;</td>
+                                            " +
+                                            "
+                                            <td>&nbsp;</td>
+                                            " +
+                                            "
+                                            <td>&nbsp;</td>
+                                            " +
+                                            "
+                                            <td colspan='3' align='right'
+                                            " +
+                                            " style='font-family: helvetica, Arial, sans-serif; font-size: 14px; color:
+                                            #343434; line-height: 14px;'" +
+                                            " class=''>" +
+                                            " <strong>" +
+                                                " Shipping" +
+                                                " </strong>" +
+                                            "                                                            </td>" +
+                                            "
+                                            <td align='right'
+                                            " +
+                                            " style='font-family: helvetica, Arial, sans-serif; font-size: 14px; color:
+                                            #343434; line-height: 14px;'" +
+                                            " class='' nowrap='nowrap'>" +
+                                            " &nbsp;&nbsp;<strong>");
+
+                                                stringBuilder
+                                                .append(orderCurrencySymbol)
+                                                .append(decimalFormat.format(Double.parseDouble(totalInfo.get("shipping").toString())))
+                                                .append(" " + orderCurrencyCode);
+
+                                                stringBuilder.append("</strong></td>" +
+                                            "
+                                        </tr>
+                                        ");
+
+                                        List taxes = (List) totalInfo.get("taxes");
+
+                                        if (taxes.size() > 0) {
+
+                                        for (Object object : taxes) {
+
+                                        HashMap
+                                        <String
+                                                , Object> tax = (HashMap
+                                            <String
+                                                    , Object>) object;
+
+                                                stringBuilder.append("
+                                                <tr>" +
+                                                    "
+                                                    <td>&nbsp;</td>
+                                                    " +
+                                                    "
+                                                    <td>&nbsp;</td>
+                                                    " +
+                                                    "
+                                                    <td>&nbsp;</td>
+                                                    " +
+                                                    "
+                                                    <td>&nbsp;</td>
+                                                    " +
+                                                    "
+                                                    <td>&nbsp;</td>
+                                                    " +
+                                                    "
+                                                    <td>&nbsp;</td>
+                                                    " +
+                                                    "
+                                                    <td align='right'
+                                                    " +
+                                                    " style='font-family: helvetica, Arial, sans-serif; font-size: 14px;
+                                                    color:
+                                                    #343434; line-height: 14px;'" +
+                                                    " class=''><strong>");
+
+                                                        stringBuilder.append(tax.get("label"));
+
+                                                        stringBuilder.append("</strong></td>" +
+                                                    "
+                                                    <td align='right'
+                                                    " +
+                                                    " style='font-family: helvetica, Arial, sans-serif; font-size: 14px;
+                                                    color:
+                                                    #343434; line-height: 14px;'" +
+                                                    " class='' nowrap='nowrap'>" +
+                                                    " &nbsp;&nbsp;<strong>");
+
+                                                        stringBuilder
+                                                        .append(orderCurrencySymbol)
+                                                        .append(decimalFormat.format(Double.parseDouble(tax.get("taxTotal").toString())))
+                                                        .append(" " + orderCurrencyCode);
+
+                                                        stringBuilder.append("</strong></td>" +
+                                                    "
+                                                </tr>
+                                                ");
+
+                                                }
+
+                                                }
+
+                                                stringBuilder.append("
+                                                <tr>" +
+                                                    "
+                                                    <td>&nbsp;</td>
+                                                    " +
+                                                    "
+                                                    <td>&nbsp;</td>
+                                                    " +
+                                                    "
+                                                    <td>&nbsp;</td>
+                                                    " +
+                                                    "
+                                                    <td>&nbsp;</td>
+                                                    " +
+                                                    "
+                                                    <td>&nbsp;</td>
+                                                    " +
+                                                    "
+                                                    <td>&nbsp;</td>
+                                                    " +
+                                                    "
+                                                    <td align='right'
+                                                    " +
+                                                    " style='font-family: helvetica, Arial, sans-serif; font-size: 14px;
+                                                    color:
+                                                    #343434; line-height: 14px;'" +
+                                                    " class=''><strong>Total</strong></td>" +
+                                                    "
+                                                    <td align='right'
+                                                    " +
+                                                    " style='font-family: helvetica, Arial, sans-serif; font-size: 14px;
+                                                    color:
+                                                    #343434; line-height: 14px;'" +
+                                                    " class='' nowrap='nowrap'>" +
+                                                    " &nbsp;&nbsp;<strong>");
+
+                                                        stringBuilder
+                                                        .append(orderCurrencySymbol)
+                                                        .append(decimalFormat.format(Double.parseDouble(totalInfo.get("total").toString())))
+                                                        .append(" " + orderCurrencyCode);
+
+                                                        stringBuilder.append("</strong></td>" +
+                                                    "
+                                                </tr>
+                                                " +
+                                                "
+                                                <tr>" +
+                                                    "
+                                                    <td>&nbsp;</td>
+                                                    " +
+                                                    "
+                                                    <td>&nbsp;</td>
+                                                    " +
+                                                    "
+                                                    <td>&nbsp;</td>
+                                                    " +
+                                                    "
+                                                    <td>&nbsp;</td>
+                                                    " +
+                                                    "
+                                                    <td>&nbsp;</td>
+                                                    " +
+                                                    "
+                                                    <td>&nbsp;</td>
+                                                    " +
+                                                    "
+                                                    <td align='right'
+                                                    " +
+                                                    " style='font-family: helvetica, Arial, sans-serif; font-size: 14px;
+                                                    color:
+                                                    #343434; line-height: 14px;'" +
+                                                    " class='' nowrap='nowrap'><strong>Balance (CAD)</strong>" +
+                                                    "                                                            </td>"
+                                                    +
+                                                    "
+                                                    <td align='right'
+                                                    " +
+                                                    " style='font-family: helvetica, Arial, sans-serif; font-size: 14px;
+                                                    color:
+                                                    #343434; line-height: 14px;'" +
+                                                    " class='' nowrap='nowrap'>" +
+                                                    " &nbsp;&nbsp;<strong>");
+
+                                                        stringBuilder
+                                                        .append(orderCurrencySymbol)
+                                                        .append(decimalFormat.format(Double.parseDouble(totalInfo.get("balance").toString())))
+                                                        .append(" " + orderCurrencyCode);
+
+                                                        stringBuilder.append("</strong></td>" +
+                                                    "
+                                                </tr>
+                                                " +
+                                                "
+                                    </tbody>
+                                    " +
+                                    "
+                                </table>
+                                " +
+                                "
+            </td>
+            " +
+            "
+        </tr>
+        " +
+        "
+        </tbody>
+        " +
+        "                                </table>" +
+        "
+    </td>
+    " +
+    "
+</tr>" +
+"                    </tbody>" +
+"                </table>" +
+"            </td>" +
+"        </tr>" +
+"        <!-- Space -->");
+
+if (includeNotes){
+// Start Notes
+try {
+ResponseEntity
+<HashMap
+<String, Object>> orderNotesResp = noteService.getAll(noteService.getUnarchivedCriteriaByDependID("orderId", id));
+HashMap
+<String, Object> orderNotes = orderNotesResp.getBody();
+
+if (orderNotes != null && orderNotes.containsKey("items")){
+
+stringBuilder.append(
+"
+<table style='border-collapse: collapse;' width='700' cellspacing='0' cellpadding='0'" +
+"                                    border='0' align='left'>" +
+"
+<tr>" +
+    "
+    <td
+    " +
+    " style='font-family: helvetica, Arial, sans-serif; font-size: 18px; color: #343434; line-height: 22px;
+    text-decoration: none;'>" +
+    " <span>Notes</span>" +
+    "                                            </td>" +
+    "
+</tr>" +
+"
+<tr>
+
+    <td
+
+            style='font-size: 0; line-height: 0; padding:0;'
+            height='1' bgcolor='#eaeaea'>&nbsp;
+    </td>
+
+</tr>
+<!-- Space -->"
+
+
+ArrayList
+<HashMap
+<String,Object>> orderNotesArr = (ArrayList
+<HashMap
+<String,Object>>)orderNotes.get("items");
+
+for (int i = 0; i < orderNotesArr.size(); i++) {
+Note currNote = (Note)orderNotesArr.get(i).get("fields");
+
+simpleDateFormat = new SimpleDateFormat(outputDateFormat);
+String noteDateFormatted = simpleDateFormat.format(currNote.getDateCreated());
+
+stringBuilder.append(
+"
+<tr style='display:table-row;font-family: helvetica, Arial, sans-serif; font-size: 15px; color: #343434; line-height: 26px;'>
+    " +
+    "
+    <td><b>" + currNote.getSubject() + "</b></td>
+    " +
+    "
+</tr>" +
+"                                        <!-- Space -->"
+);
+
+stringBuilder.append(
+"
+<tr style='display:table-row;font-family: helvetica, Arial, sans-serif; font-size: 14px; color: #343434; line-height: 26px;'>
+    " +
+    "
+    <td>" + noteDateFormatted + "</td>
+    " +
+    "
+</tr>" +
+"                                        <!-- Space -->"
+);
+
+stringBuilder.append(
+"
+<tr style='display:table-row;font-family: helvetica, Arial, sans-serif; font-size: 16px; color: #343434; line-height: 26px;'>
+    " +
+    "
+    <td>" + currNote.getMessage() + "</td>
+    " +
+    "
+</tr>" +
+"                                        <!-- Space -->"
+);
+}
+}
+} catch (ServiceException noteSe) {
+log.error("Invoice error: " + noteSe.getMessage(), noteSe);
+}
+
+try {
+int customerId = order.getCustomerId();
+
+ResponseEntity
+<HashMap
+<String, Object>> customerOrderNotesResp = customer.getCustomerOrderNotes(customerId, siteName);
+HashMap
+<String, Object> customerOrderNotes = customerOrderNotesResp.getBody();
+
+if (customerOrderNotes != null && customerOrderNotes.containsKey("items")){
+
+stringBuilder.append(
+"
+<tr>" +
+    "
+    <td
+    " +
+    " style='font-family: helvetica, Arial, sans-serif; font-size: 18px; color: #343434; line-height: 22px;
+    text-decoration: none;'>" +
+    " <br><br>" +
+    "                                            </td>" +
+    "
+</tr>" +
+"
+<tr>" +
+    "
+    <td
+    " +
+    " style='font-family: helvetica, Arial, sans-serif; font-size: 18px; color: #343434; line-height: 22px;
+    text-decoration: none;'>" +
+    " <span>Customer Notes</span>" +
+    "                                            </td>" +
+    "
+</tr>" +
+"
+<tr>" +
+    "
+    <td
+    " +
+    " style='font-size: 0; line-height: 0; padding:0;'" +
+    " height='1' bgcolor='#eaeaea'>&nbsp;</td>" +
+    "
+</tr>" +
+"                                        <!-- Space -->"
+);
+
+ArrayList
+<HashMap
+<String,Object>> customerOrderNotesArr = (ArrayList
+<HashMap
+<String,Object>>)customerOrderNotes.get("items");
+
+for (int i = 0; i < customerOrderNotesArr.size(); i++) {
+HashMap
+<String, Object> currNote = (HashMap
+<String, Object>) customerOrderNotesArr.get(i).get("fields");
+
+simpleDateFormat = new SimpleDateFormat(outputDateFormat);
+String noteDateFormatted = simpleDateFormat.format(new Date(Long.parseLong(String.valueOf(currNote.get("dateCreated").toString()))));
+
+stringBuilder.append(
+"
+<tr style='display:table-row;font-family: helvetica, Arial, sans-serif; font-size: 15px; color: #343434; line-height: 26px;'>
+    " +
+    "
+    <td><b>" + currNote.get("subject").toString() + "</b></td>
+    " +
+    "
+</tr>" +
+"                                        <!-- Space -->"
+);
+
+stringBuilder.append(
+"
+<tr style='display:table-row;font-family: helvetica, Arial, sans-serif; font-size: 14px; color: #343434; line-height: 26px;'>
+    " +
+    "
+    <td>" + noteDateFormatted + "</td>
+    " +
+    "
+</tr>" +
+"                                        <!-- Space -->"
+);
+
+stringBuilder.append(
+"
+<tr style='display:table-row;font-family: helvetica, Arial, sans-serif; font-size: 16px; color: #343434; line-height: 26px;'>
+    " +
+    "
+    <td>" + currNote.get("message").toString() + "</td>
+    " +
+    "
+</tr>"
+);
+}
+
+stringBuilder.append(
+"
+<tr>" +
+    "
+    <td
+    " +
+    " style='font-family: helvetica, Arial, sans-serif; font-size: 18px; color: #343434; line-height: 22px;
+    text-decoration: none;'>" +
+    " <br><br>" +
+    "                                            </td>" +
+    "
+</tr>" +
+"                                        </table>");
+}
+} catch (ServiceException noteSe) {
+log.error("Invoice error: " + noteSe.getMessage(), noteSe);
+}
+
+// End Notes
+}
+
+stringBuilder.append("
+<tr>");
+    stringBuilder.append("
+    <td>");
+        stringBuilder.append("
+        <table>");
+            stringBuilder.append("
+            <tbody>");
+            stringBuilder.append("
+            <tr>");
+                stringBuilder.append("
+                <td valign='top'>");
+                    stringBuilder.append("<img id='logo-footer' src='" + webLogoUrl + "' alt='' border='0'
+                                               style='max-height:200px; max-width:300px;'>");
+                    stringBuilder.append("
+                </td>
+                ");
+                stringBuilder.append("
+            </tr>
+            ");
+            stringBuilder.append("
+            </tbody>
+            ");
+            stringBuilder.append("
+        </table>
+        ");
+        stringBuilder.append("
+    </td>
+    ");
+    stringBuilder.append("
+</tr>");
+
+if (settingsObj != null) {
+
+HashMap
+<String, Object> storeProvinceInfo = null;
+int storeStateProv = Integer.parseInt(settingsObj.get("storeProvId").toString());
+if (storeStateProv != 0) {
+storeProvinceInfo = getProvinceInfo(storeStateProv);
+}
+
+// Get country info
+HashMap
+<String, Object> storeCountryInfo = null;
+int storeCountry = Integer.parseInt(settingsObj.get("storeCountryId").toString());
+if (storeCountry != 0) {
+storeCountryInfo = getCountryInfo(storeCountry);
+}
+
+StringBuilder storeName = new StringBuilder();
+
+StringBuilder storeAddress = new StringBuilder();
+
+StringBuilder storeCityProvinceZip = new StringBuilder();
+
+storeName.append(settingsObj.get("storeName"));
+
+storeAddress.append(settingsObj.get("storeAddressLine1")).append(" ")
+.append(settingsObj.get("storeAddressLine2"));
+
+storeCityProvinceZip.append(settingsObj.get("storeCity")).append(" ");
+if (storeProvinceInfo != null && !storeProvinceInfo.toString().equalsIgnoreCase("null")) {
+storeCityProvinceZip.append(storeProvinceInfo.get("name").toString()).append(" ");
+}
+
+if (storeCityProvinceZip != null && !storeCityProvinceZip.toString().equalsIgnoreCase("null")) {
+storeCityProvinceZip.append(settingsObj.get("storePostalCode"));
+}
+
+if (storeName != null && !storeName.toString().equalsIgnoreCase("null")) {
+stringBuilder.append("
+<tr>" +
+    "
+    <td style='padding: 2px; font-size: 12px; line-height: 12px; font-family:helvetica, Arial, sans-serif; color:#666666;'>
+        " +
+        storeName.toString() +
+        "
+    </td>
+    " +
+    "
+</tr>");
+}
+if (storeAddress != null && !storeAddress.toString().equalsIgnoreCase("null null")) {
+stringBuilder.append("
+<tr>" +
+    "
+    <td style='padding: 2px; font-size: 12px; line-height: 12px; font-family:helvetica, Arial, sans-serif; color:#666666;'>
+        " +
+        storeAddress.toString() +
+        "
+    </td>
+    " +
+    "
+</tr>");
+}
+if (storeCityProvinceZip != null && !storeCityProvinceZip.toString().equalsIgnoreCase("null null")) {
+stringBuilder.append("
+<tr>" +
+    "
+    <td style='padding: 2px; font-size: 12px; line-height: 12px; font-family:helvetica, Arial, sans-serif; color:#666666;'>
+        " +
+        storeCityProvinceZip.toString() +
+        "
+    </td>
+    " +
+    "
+</tr>");
+}
+if (storeCountryInfo != null && !storeCountryInfo.toString().equalsIgnoreCase("null null")) {
+stringBuilder.append("
+<tr>" +
+    "
+    <td style='padding: 2px; font-size: 12px; line-height: 12px; font-family:helvetica, Arial, sans-serif; color:#666666;'>
+        " +
+        storeCountryInfo.get("name").toString() +
+        "
+    </td>
+    " +
+    "
+</tr>");
+}
+if (settingsObj.get("storeEmail") != null) {
+stringBuilder.append("
+<tr>" +
+    "
+    <td style='padding: 2px; font-size: 12px; line-height: 12px; font-family:helvetica, Arial, sans-serif; color:#666666;'>
+        " +
+        "Email: " + settingsObj.get("storeEmail").toString() +
+        "
+    </td>
+    " +
+    "
+</tr>");
+}
+if (settingsObj.get("storePhone") != null) {
+stringBuilder.append("
+<tr>" +
+    "
+    <td style='padding: 2px; font-size: 12px; line-height: 12px; font-family:helvetica, Arial, sans-serif; color:#666666;'>
+        " +
+        "Phone: " + settingsObj.get("storePhone").toString() +
+        "
+    </td>
+    " +
+    "
+</tr>");
+}
+}
+
+stringBuilder.append("</tbody>" +
+"                </table>" +
+"            </td>" +
+"        </tr>" +
+"    </tbody>" +
+"</table>");
+
+return stringBuilder.toString();
+}
