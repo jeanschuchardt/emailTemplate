@@ -1,4 +1,4 @@
-package com.javabydeveloper.mail.service;
+package com.javabydeveloper.service;
 
 import com.javabydeveloper.model.Mail;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,4 +1,4 @@
-package com.javabydeveloper.demo;
+package com.javabydeveloper;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -12,7 +12,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
 
-import com.javabydeveloper.mail.service.EmailSenderService;
+import com.javabydeveloper.service.EmailSenderService;
 import com.javabydeveloper.model.Mail;
 
 @SpringBootApplication
